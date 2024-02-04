@@ -1,0 +1,110 @@
+/* Default styles */
+.popup {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.contentBox {
+  text-align: center;
+  padding: 20px;
+  width: 480px;
+  height: 490px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 3px 3px 20px 3px rgb(219, 109, 25);
+  margin: 0 auto;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #32afe6;
+  border-radius: 50%;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.icon i.fa {
+  font-size: 30px;
+  color: #34f234;
+}
+
+.icon img {
+    height: 190px;
+    margin: -46.5px;
+    width: 190px;
+}
+
+.contentBox .content {
+  text-align: center;
+  padding-top: 0px;
+}
+
+.contentBox .content h3 {
+  color: #333;
+  line-height: 1.2em;
+  font-weight: 400;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+
+.data01 {
+  font-size: 1.25em;
+  font-weight: 400;
+  text-align: left;
+}
+
+.phead {
+  font-size: 1.25em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.data01 h4, p {
+  display: block;
+  margin: 0;
+  margin-bottom: 3px;
+}
+
+.data01 p {
+  margin-bottom: 10px;
+}
+
+
+
+/* Responsive styles using media queries */
+@media (max-width: 768px) {
+  .contentBox {
+    width: 300px;
+    height: 470px;
+  }
+
+  .icon {
+    width: 80px; /* Adjust the icon size */
+    height: 80px;
+  }
+
+  .icon i.fa {
+    font-size: 20px; /* Adjust the font size */
+  }
+
+  .icon img {
+    height: 130px;
+    margin: -27.5px;
+    width: 130px;
+  }
+
+  .contentBox .content h3 {
+    font-size: 2em; /* Adjust the font size */
+  }
+
+  .contentBox .content p {
+    font-size: 1em; /* Adjust the font size */
+  }
+}
