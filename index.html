@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate_Verification</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="nav_Css.css" />
+    <link rel="stylesheet" href="r.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+
+    <!-- Unicons CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <nav class="nav">
+      <i class="uil uil-bars navOpenBtn"></i>
+      <a href="https://www.internpedia.in/" class="logo"><img src="V_Logo.png">
+      </a>
+      <ul class="nav-links">
+        <i class="uil uil-times navCloseBtn"></i>
+        <li><a href="https://www.internpedia.in/">Home</a></li>
+        <li><a href="https://www.internpedia.in/">Services</a></li>
+        <li><a href="https://www.internpedia.in/p/web-development-and-designing.html">Internship</a></li>
+        <li><a href="https://www.internpedia.in/p/about-us.html">About Us</a></li>
+        <li><a href="https://www.internpedia.in/p/contact-us.html">Contact Us</a></li>
+        <li><a href="https://www.internpedia.in/p/faqs.html">FAQ's</a></li>
+      </ul>
+
+      <i class="uil uil-search search-icon" id="searchIcon"></i>
+      <div class="search-box">
+        <i class="uil uil-search search-icon"></i>
+        <input type="text" placeholder="Search here..." />
+      </div>
+    </nav>
+
+    <div class="popup">
+
+      <div class="contentBox">
+
+        <div class="content">
+
+          <div class="icon"><img src="200w.gif" alt=""></div>
+
+          <div>
+
+            <h3>Your Certificate Is Verified.</h3>
+            <p class="phead">The Candidate Have Successfully Completed One Month Virtual Internship Program Under The
+              <b>InternPedia</b></p>
+  
+  
+            <div class="data01">
+             
+  
+              <h4>Name</h4><p id="demo"></p>
+  
+          
+             <h4>Domain</h4> <p id="intertype"></p>
+  
+             
+              <h4>Certificate ID</h4><p id="date"></p>
+            </div>
+
+          </div>
+          
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <script>
+      // Function to decode a string using Caesar cipher
+      function decodeString(encodedString) {
+        const shift = 13;
+        return encodedString.split('').map(char => {
+          if (char.match(/[a-zA-Z]/)) {
+            const isUpperCase = char === char.toUpperCase();
+            const baseCharCode = isUpperCase ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
+            const decodedCharCode = (char.charCodeAt(0) - baseCharCode - shift + 26) % 26 + baseCharCode;
+            return String.fromCharCode(decodedCharCode);
+          } else {
+            return char;
+          }
+        }).join('');
+      }
+  
+      // Function to decrypt data
+      function decryptData(encodedData) {
+        // Decode the URL-encoded data
+        const decodedData = decodeURIComponent(encodedData);
+  
+        // Split the decoded data into individual parts
+        const [name, interntype, date] = decodedData.split('_');
+  
+        // Decode each part using Caesar cipher
+        const decodedName = decodeString(name);
+        const decodedInterntype = decodeString(interntype);
+        const decodedDate = decodeString(date);
+  
+        // Display the decrypted data in the HTML
+        document.getElementById("demo").innerHTML += decodedName;
+        document.getElementById("intertype").innerHTML += decodedInterntype;
+        document.getElementById("date").innerHTML += decodedDate;
+  
+        // Return the decrypted data or use it as needed
+        return { decodedName, decodedInterntype, decodedDate };
+      }
+  
+      // Example URL-encoded data
+      const urlParams = new URLSearchParams(window.location.search);
+      const myParam = urlParams.get('details');
+      const decryptedData = decryptData(myParam);
+    </script>
+
+
+
+
+  </body>
+</html>
